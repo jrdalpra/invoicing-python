@@ -39,7 +39,7 @@ class DeletedAware(models.Model):
     def delete(self, using=None, keep_parents=False):
         self.deleted_at = timezone.now()
         self.save(update_fields=["deleted_at"])
-        post_delete.send(send=self.__class__, instance=self, using=using)
+        post_delete.send(sender=self.__class__, instance=self, using=using)
 
     def force_delete(self, using=None, *args, **kwargs):
         """Force this object deletion"""
@@ -74,7 +74,7 @@ class SoftDeleteManager(models.Manager):
         """Return the original QuerySet to list all objects, even those we marked as deleted
         :return: original QuerySet
         """
-        return super(SoftDeleteManager, self).get_queryset(self.model, using=self._db)
+        return super(SoftDeleteManager, self).get_queryset()
 
 
 class BaseModel(Identifiable, CreatedAndUpdatedAware, DeletedAware):

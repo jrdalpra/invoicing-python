@@ -11,6 +11,14 @@ jobs:
           - ALLOWED_HOSTS: localhost
           - SECRET_KEY: a-secret-that-must-not-be-shared-with-anyone-else-because-it-is-really-important
           - COVERALLS_FLAG_NAME: "tests"
+          - DATABASE_URL: postgres://postgres@localhost/invoicing
+
+      - image: circleci/postgres:13.1
+        environment:
+          - POSTGRES_USER: postgres
+          - POSTGRES_DB: invoicing
+          - POSTGRES_HOST_AUTH_METHOD: trust
+
 
     working_directory: ~/repo
 
@@ -19,7 +27,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "requirements-dev.txt" }}
+            - v3-dependencies-{{ checksum "requirements-dev.txt" }}
 
       - run:
           name: install dependencies
@@ -31,7 +39,7 @@ jobs:
       - save_cache:
           paths:
             - .venv
-          key: v2-dependencies-{{ checksum "requirements-dev.txt" }}
+          key: v3-dependencies-{{ checksum "requirements-dev.txt" }}
 
       - run:
           name: run tests
