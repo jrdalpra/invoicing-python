@@ -1,0 +1,10 @@
+django
+requests
+dj-database-url
+psycopg2
+djangorestframework
+gunicorn
+gevent
+django-storages
+dotmap
+dj-static

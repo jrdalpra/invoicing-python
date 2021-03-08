@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  piptools:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: piptools
+    volumes:
+      - .:/app:z
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: development
+    env_file:
+      - .env
+    volumes:
+      - .:/app:z
+    ports:
+      - "${PORT}:${PORT}"

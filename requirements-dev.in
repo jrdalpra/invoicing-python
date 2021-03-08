@@ -1,0 +1,16 @@
+pytest
+pytest-mock
+pytest-django
+coveralls
+pytest-cov
+flake8
+factory-boy
+httmock
+pylint
+rope
+freezegun
+fakeredis
+pytest-xdist
+pytest-bdd
+pallets-sphinx-themes
+interrogate
