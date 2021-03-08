@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+admin.site.site_header = "Invoicing"
+admin.site.site_title = "Invoicing"
+admin.site.index_title = "Invoicing"
+admin.site.enable_nav_sidebar = False
+
+urlpatterns = [path("admin/", admin.site.urls)]
+urlpatterns += staticfiles_urlpatterns()

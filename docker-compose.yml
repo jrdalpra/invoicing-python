@@ -8,6 +8,7 @@ services:
       target: piptools
     volumes:
       - .:/app:z
+
   web:
     build:
       context: .
@@ -19,3 +20,19 @@ services:
       - .:/app:z
     ports:
       - "${PORT}:${PORT}"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: "postgres:13-alpine"
+    volumes:
+      -  db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=invoicing
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
