@@ -1,6 +1,6 @@
 [run]
 source = .
-omit = **/__init__.py, .venv/**, **/manage.py, **/conftest.py, **/admin.py, **/settings*.py, */apps.py, **/urls.py, **/wsgi.py, **/asgi.py, **/tests/*.py
+omit = **/__init__.py, .venv/**, **/migrations/*.*, **/manage.py, **/conftest.py, **/admin.py, **/settings*.py, */apps.py, **/urls.py, **/wsgi.py, **/asgi.py, **/tests/*.py
 
 [report]
 show_missing = true
