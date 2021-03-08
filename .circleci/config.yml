@@ -51,7 +51,6 @@ workflows:
   main:
     jobs:
       - tests:
-          context: org-global
           filters:
             tags:
               <<: *tag-pattern
