@@ -3,6 +3,11 @@
 This is an implementation of a simple invoicing application. The idea is to test some python frameworks with a project
 closer to the real world.
 
+### Badges
+[![CircleCI](https://circleci.com/gh/jrdalpra/invoicing-python.svg?style=svg)](https://circleci.com/gh/jrdalpra/invoicing-python.svg)
+[![Coverage Status](https://coveralls.io/repos/github/jrdalpra/invoicing-python/badge.svg?branch=main)](https://coveralls.io/github/jrdalpra/invoicing-python?branch=main)
+
+
 ## Business Rules
 
 - TODO the data model
