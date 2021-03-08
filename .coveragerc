@@ -1,0 +1,9 @@
+[run]
+source = .
+omit = **/manage.py, **/conftest.py, **/admin.py, **/settings*.py, */apps.py, **/urls.py, **/wsgi.py, **/asgi.py, **/tests/*.py
+
+[report]
+show_missing = true
+
+[xml]
+output = build/coverage.xml

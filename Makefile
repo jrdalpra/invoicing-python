@@ -10,6 +10,10 @@ help:
 	@echo 'env ................................ create environment specific files'
 	@echo 'test ............................... run all tests'
 	@echo 'run ................................ execute the web application'
+	@echo 'migrations ......................... create new migrations'
+	@echo 'migrate ............................ apply existing migrations'
+	@echo 'superuser .......................... create a superuser to test the app'
+	@echo 'shell .............................. run a "sh" inside the "web" container'
 	@echo ''
 
 
@@ -26,5 +30,20 @@ env:
 test:
 	@./bin/run.sh pytest -vv
 
-run:
-	@docker-compose up runtime
+static:
+	@./bin/run.sh python manage.py collectstatic --no-input
+
+run: static
+	@docker-compose up web
+
+migrations:
+	@./bin/run.sh python manage.py makemigrations
+
+migrate:
+	@./bin/run.sh python manage.py migrate
+
+superuser:
+	@./bin/run.sh python manage.py createsuperuser
+
+shell:
+	@./bin/run.sh sh
