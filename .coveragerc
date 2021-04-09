@@ -4,6 +4,7 @@ omit = **/__init__.py, .venv/**, **/migrations/*.*, **/manage.py, **/conftest.py
 
 [report]
 show_missing = true
+exclude_lines = def __str__
 
 [xml]
 output = build/coverage.xml

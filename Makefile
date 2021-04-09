@@ -47,3 +47,5 @@ superuser:
 
 shell:
 	@./bin/run.sh sh
+
+.PHONY: requirements-dev.txt requirements.txt

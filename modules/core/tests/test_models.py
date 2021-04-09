@@ -1,18 +1,15 @@
 import pytest
 
-from modules.core.models.definitions import Marketable, MarketableKlass
+from modules.core.models.definitions import Marketable, MarketableKind
 
 
 @pytest.mark.django_db
 class TestMarketable:
     @pytest.fixture()
     def subject(self):
-        subject = Marketable(name="Test", klass=MarketableKlass.PRODUCT)
+        subject = Marketable(name="Test", kind=MarketableKind.PRODUCT)
         subject.save()
         return subject
-
-    def test_string_representation(self, subject: Marketable):
-        assert str(subject) == f"Test (id={subject.id})"
 
     def test_basic_fields(self, subject: Marketable):
         assert subject.created_at is not None
