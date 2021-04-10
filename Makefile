@@ -48,4 +48,7 @@ superuser:
 shell:
 	@./bin/run.sh sh
 
+django-shell:
+	@./bin/run.sh python manage.py shell
+
 .PHONY: requirements-dev.txt requirements.txt

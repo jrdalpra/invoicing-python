@@ -12,7 +12,7 @@ class MarketableKind(str, Enum):
 
     @classmethod
     def choices(cls):
-        return tuple((_(i.name.capitalize()), i.value) for i in cls)
+        return tuple((i.value, _(i.name.capitalize())) for i in cls)
 
 
 class Marketable(BaseModel):
@@ -22,7 +22,7 @@ class Marketable(BaseModel):
         choices=MarketableKind.choices(),
         null=False,
         blank=True,
-        default=MarketableKind.PRODUCT,
+        default=MarketableKind.PRODUCT.value,
         verbose_name=_("Kind"),
     )
 
