@@ -33,7 +33,7 @@ test:
 static:
 	@./bin/run.sh python manage.py collectstatic --no-input
 
-run: static
+run: migrations migrate static
 	@docker-compose up web
 
 migrations:

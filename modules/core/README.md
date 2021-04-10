@@ -5,3 +5,7 @@ other module inside this project.
 
 The idea is to have the bases of any model here and also the foundations of 
 our business logic.
+
+### Entities
+
+TODO generate a class diagram or entity-relationship diagram
