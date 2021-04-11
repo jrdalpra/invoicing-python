@@ -17,7 +17,9 @@ class TestInvoice:
         service = Marketable.objects.create(name="Service", kind=MarketableKind.SERVICE)
 
         subject = Invoice(seller=seller, buyer=buyer, due_at=timezone.now())
-        subject.items.add(InvoiceItem(content=service, quantity=0.01, price=100), bulk=False)
+        subject.items.add(
+            InvoiceItem(content=service, quantity=0.01, price=100), bulk=False
+        )
         subject.save()
 
         assert subject.total == expected_total

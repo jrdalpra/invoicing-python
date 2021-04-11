@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 import modules.core.web.urls
+import modules.billing.web.urls
 
 admin.site.site_header = "Invoicing"
 admin.site.site_title = "Invoicing"
@@ -27,5 +28,6 @@ admin.site.enable_nav_sidebar = False
 urlpatterns = [
     path(r"admin/", admin.site.urls),
     path(r"api/core/", include(modules.core.web.urls.router.urls)),
+    path(r"api/billing/", include(modules.billing.web.urls.router.urls)),
 ]
 urlpatterns += staticfiles_urlpatterns()

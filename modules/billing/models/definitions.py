@@ -14,7 +14,7 @@ class Invoice(BaseModel):
 
     @property
     def total(self):
-        total = Decimal('0')
+        total = Decimal("0")
         for item in self.items.all():
             total += item.total
         return total

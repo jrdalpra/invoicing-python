@@ -79,6 +79,7 @@ class SoftDeleteManager(models.Manager):
 
 class BaseModel(Identifiable, CreatedAndUpdatedAware, DeletedAware):
     """Any model must extends our base model to make sure it will have the basic fields we need"""
+
     class Meta:
         abstract = True
 
