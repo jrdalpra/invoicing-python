@@ -18,8 +18,6 @@ WORKDIR /app
 COPY --chown=localuser:localuser . /app
 RUN chown -R localuser:localuser /app
 
-USER localuser
-
 FROM base as piptools
 RUN pip install pip-tools
 
@@ -32,5 +30,6 @@ COPY ./requirements-dev.txt /tmp/requirements-dev.txt
 RUN cd /tmp/ && pip install --no-cache-dir --disable-pip-version-check -r requirements-dev.txt
 
 FROM requirementsdev as development
+USER localuser
 
 CMD ["gunicorn", "invoicing.wsgi", "--reload", "-c", "config/gunicorn.py"]

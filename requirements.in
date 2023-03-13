@@ -8,3 +8,4 @@ gevent
 django-storages
 dotmap
 dj-static
+django-jazzmin

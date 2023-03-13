@@ -22,7 +22,7 @@ requirements_output = requirements.txt requirements-dev.txt
 requirements-dev.txt: requirements.txt
 
 $(requirements_output): %txt: %in
-	@docker-compose run --rm piptools pip-compile -v --generate-hashes --no-emit-index-url --no-header --output-file $@ $<
+	@docker-compose run --rm piptools pip-compile -v --generate-hashes --no-emit-index-url --no-header --allow-unsafe --output-file $@ $<
 
 env:
 	@cp .env-sample .env
